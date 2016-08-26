@@ -25,8 +25,9 @@ def request(url, q):
     try:
         r = requests.get(url, params=get_params("q", q))
         return get_value(r.json())
-    except Exception:
-        raise "sorry, network error!"
+    except:
+        print "Sorry, something wrong!"
+        sys.exit()
 
 def get_value(json):
     value_list = json["web"][0]["value"]
